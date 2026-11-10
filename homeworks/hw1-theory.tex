@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    {\Large Теоретическое домашнее задание №1}\\[8pt]
+\end{center}
+
+\vspace{2em}
+
+\noindent
+\textbf{Задача 1.} В аналитическом виде найдите оценки параметра $w$, минимизируя
+следующие функции потерь:
+
+\begin{enumerate}[itemsep=6pt, topsep=8pt]
+    \item Линейная регрессия без штрафа:
+          $L(w) = \frac{1}{n}\sum_{i=1}^{n}(y_i - wx_i)^2$;
+
+    \item Ridge-регрессия:
+          $L(w) = \frac{1}{n}\sum_{i=1}^{n}(y_i - wx_i)^2 + \lambda w^2$;
+
+    \item LASSO-регрессия:
+          $L(w) = \frac{1}{n}\sum_{i=1}^{n}(y_i - wx_i)^2 + \lambda|w|$;
+
+    \item Пусть решения этих задач равны $\hat w$, $\hat w_R$ и $\hat w_L$ соответственно.
+          Найдите пределы
+          \[
+              \lim_{\lambda \to 0} \hat w_R, \qquad
+              \lim_{\lambda \to \infty} \hat w_R, \qquad
+              \lim_{\lambda \to 0} \hat w_L, \qquad
+              \lim_{\lambda \to \infty} \hat w_L .
+          \]
+
+    \item Как можно проинтерпретировать гиперпараметр $\lambda$?
+\end{enumerate}
+
+\textbf{Подсказка:} в случае Lasso-регрессии придётся разобраться с модулем. 
+
+\vspace{2em}
+\noindent
+\textbf{Задача 2.}
+
+Рассмотрим функционал среднего риска для квадратичной функции потерь:
+
+\[
+R(a)=\mathbb{E}_{(x, y)\sim p(x, y)}L(y, a(x))=\int_{\mathbb{X}}\int_{\mathbb{Y}}(y-a(x))^2p(x, y)dx dy
+\]
+
+Найдите оптимальный алгоритм $a^*(x)$, который минимизирует данный функционал. То есть необходимо решить задачу:
+
+\[
+\int_{\mathbb{X}}\int_{\mathbb{Y}}(y-a(x))^2p(x, y)dxdy \rightarrow \min_a
+\]
+
+\vspace{2em}
+\noindent
+\textbf{Задача 3.} 
+
+Убедитесь, что вы знаете ответы на следующие вопросы:
+\begin{itemize}
+	\item Что такое гиперпараметр модели и чем он отличается от параметра модели?
+	\item Почему коэффициент регуляризации нельзя подбирать по обучающей выборке? Как подобрать оптимальное значение для коэффициента регуляризации? 
+	\item Почему накладывать регуляризатор на свободный коэффициент~$w_0$ может быть плохой идеей?
+	\item Что такое кросс-валидация, чем она лучше использования отложенной выборки?
+	\item Почему категориальные признаки нельзя закодировать натуральными числами? Что такое one-hot encoding?
+	\item Для чего нужно масштабировать матрицу объекты-признаки перед обучением моделей машинного обучения?
+	\item Почему~$L_1$-регуляризация производит отбор признаков?
+	\item Почему MSE чувствительно к выбросам? 
+\end{itemize}
+
+
+\end{document}
